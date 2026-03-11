@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-cormorant);
+  --color-brand-new: #ff5733; 
+  --animate-slow-spin: spin 20s linear infinite;
+
+  /* Semantic Tokens (These never change name, only value) */
+  --color-bg-main: var(--bg-main);
+  --color-text-main: var(--text-main);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  
+  /* Animation Utilities */
+  --animate-float: float 20s ease-in-out infinite;
+  --animate-grain: grain 8s steps(10) infinite;
+}
+
+@layer base {
+  :root {
+    /* DEFAULT THEME (HOME): Deep Forest */
+    --bg-main: hsl(150 15% 12%);     /* Deep Pine */
+    --text-main: hsl(35 20% 88%);    /* Limestone */
+    --accent: hsl(35 30% 50%);       /* Raw Clay */
+    --surface: hsl(150 20% 16%);     /* Shadow Pine */
+  }
+
+  /* THEME: ABOUT (Warm Clay) */
+  [data-theme="about"] {
+    --bg-main: hsl(28 15% 85%);      /* Sandstone */
+    --text-main: hsl(28 10% 15%);    /* Dark Loam */
+    --accent: hsl(140 30% 35%);      /* Sap Green */
+    --surface: hsl(28 20% 80%);      /* Darker Sand */
+  }
+
+  /* THEME: CATALOGUE (Clean Paper) */
+  [data-theme="catalogue"] {
+    --bg-main: hsl(40 20% 96%);      /* Cotton Paper */
+    --text-main: hsl(210 20% 20%);   /* Ink Blue */
+    --accent: hsl(25, 70%, 50%);     /* Export Orange */
+    --surface: hsl(40 10% 92%);      /* Thick Card */
+  }
+
+  /* THEME: CONTACT (Premium Charcoal) */
+  [data-theme="contact"] {
+    --bg-main: hsl(220 15% 10%);     /* Midnight */
+    --text-main: hsl(0, 0%, 95%);    /* Pure White */
+    --accent: hsl(45, 40%, 60%);     /* Brass */
+    --surface: hsl(220, 10%, 14%);   /* Elevated Gray */
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    transition: background-color 1s cubic-bezier(0.16, 1, 0.3, 1), color 0.8s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .text-display { font-family: var(--font-display); }
+  
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  }
+}
