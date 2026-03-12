@@ -89,7 +89,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: isVisible ? 0 : "-150%", opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.6, ease: EASE_OS }}
-      className="fixed left-0 right-0 z-[100] flex justify-center pointer-events-none bottom-6 md:top-6 md:bottom-auto"
+      className="fixed left-0 right-0 z-[100] flex justify-center pointer-events-none top-6"
     >
       <motion.div
         layout
@@ -112,8 +112,8 @@ export default function Navbar() {
         {/* TOP ROW */}
         <div className="relative flex items-center w-full h-[52px]">
           {/* LOGO */}
-          <button
-            onClick={() => router.push("/")}
+          <Link
+            href="/"
             className="flex items-center pl-2 pr-4 transition-transform active:scale-95"
             aria-label="Go to home"
           >
@@ -129,7 +129,7 @@ export default function Navbar() {
                   : "brightness-0 opacity-90" // Forces Deep Charcoal/Black
               )}
             />
-          </button>
+          </Link>
 
           {/* MENU TOGGLE */}
           <button
@@ -193,9 +193,10 @@ export default function Navbar() {
             >
               <div className="space-y-1">
                 {NAV_ITEMS.map((item) => (
-                  <button
+                  <Link
                     key={item.label}
-                    onClick={() => router.push(item.href)}
+                    href={item.href}
+                    onClick={() => setIsExpanded(false)}
                     className={cn(
                       "w-full flex items-center justify-between p-3 rounded-xl transition-colors",
                       isDarkPage ? "hover:bg-white/5 text-white/80" : "hover:bg-black/5 text-[#5F5F5F]"
@@ -208,7 +209,7 @@ export default function Navbar() {
                       </span>
                     </div>
                     <ArrowRight size={14} className="opacity-30" />
-                  </button>
+                  </Link>
                 ))}
               </div>
             </motion.div>
