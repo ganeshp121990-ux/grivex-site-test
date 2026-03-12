@@ -51,8 +51,8 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let width = document.documentElement.clientWidth || window.innerWidth;
-    let height = document.documentElement.clientHeight || window.innerHeight;
+    let width = canvas.clientWidth || window.innerWidth;
+    let height = canvas.clientHeight || window.innerHeight;
     // High-DPI
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
@@ -185,7 +185,14 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
       const cy = height / 2;
       // Viewport-safe calculation to guarantee a perfect circle on all ratios
       const base = Math.min(width, height);
-      const RADIUS = base * 0.34;
+      let RADIUS;
+      if (width < 768) {
+        RADIUS = base * 0.44; // Mobile: slightly wider ring to encompass text gracefully
+      } else if (width < 1024) {
+        RADIUS = base * 0.38; // Tablet
+      } else {
+        RADIUS = base * 0.33; // Desktop
+      }
 
       // Sort Z for occlusion
       particles.sort((a, b) => a.z - b.z);
@@ -264,8 +271,9 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
     render();
 
     const handleResize = () => {
-      width = document.documentElement.clientWidth || window.innerWidth;
-      height = document.documentElement.clientHeight || window.innerHeight;
+      if (!canvas) return;
+      width = canvas.clientWidth || window.innerWidth;
+      height = canvas.clientHeight || window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
