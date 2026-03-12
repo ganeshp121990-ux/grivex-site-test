@@ -610,9 +610,6 @@
   .top-20 {
     top: calc(var(--spacing) * 20);
   }
-  .top-32 {
-    top: calc(var(--spacing) * 32);
-  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -871,10 +868,6 @@
   .h-auto {
     height: auto;
   }
-  .h-fit {
-    height: -moz-fit-content;
-    height: fit-content;
-  }
   .h-full {
     height: 100%;
   }
@@ -1094,9 +1087,6 @@
   .justify-center {
     justify-content: center;
   }
-  .justify-end {
-    justify-content: flex-end;
-  }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
   }
@@ -1120,9 +1110,6 @@
   }
   .gap-16 {
     gap: calc(var(--spacing) * 16);
-  }
-  .gap-24 {
-    gap: calc(var(--spacing) * 24);
   }
   .gap-28 {
     gap: calc(var(--spacing) * 28);
@@ -2055,17 +2042,11 @@
   .text-\[\#5F5F5F\] {
     color: #5F5F5F;
   }
-  .text-\[\#8C6544\]\/80 {
-    color: color-mix(in oklab, #8C6544 80%, transparent);
-  }
   .text-\[\#9c8f6a\] {
     color: #9c8f6a;
   }
   .text-\[\#355E3B\] {
     color: #355E3B;
-  }
-  .text-\[\#355E3B\]\/80 {
-    color: color-mix(in oklab, #355E3B 80%, transparent);
   }
   .text-\[\#444\] {
     color: #444;

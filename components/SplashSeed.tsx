@@ -40,8 +40,8 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    let width = document.documentElement.clientWidth || window.innerWidth;
+    let height = document.documentElement.clientHeight || window.innerHeight;
     // High-DPI
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
@@ -50,9 +50,9 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
 
     // --- CONFIG ---
     const PARTICLE_COUNT = 550; // High Density (User requested "more")
-    const FORMATION_TIME = 2000;
-    const HOLD_TIME = 5500;
-    const EXIT_TIME = 7000; // +1.5s after Disperse triggers (User asked for +1s)
+    const FORMATION_TIME = 50;  // Immediate responsive start
+    const HOLD_TIME = 2800;     // Adjusted to match faster start
+    const EXIT_TIME = 4200;     // Adjusted
     const FOCAL_LENGTH = 400;
 
     // --- STATE ---
@@ -172,14 +172,15 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
 
       const cx = width / 2;
       const cy = height / 2;
-      const RADIUS = Math.min(width, height) * 0.32;
+      // Viewport-safe calculation to guarantee a perfect circle on all ratios
+      const RADIUS = width < 768 ? Math.min(width, height) * 0.42 : Math.min(width, height) * 0.32;
 
       // Sort Z for occlusion
       particles.sort((a, b) => a.z - b.z);
 
       particles.forEach((p, i) => {
-        // Faster Fade In (0.8s) so they appear "Live" immediately
-        if (elapsed < 800) p.alpha = Math.min(1, elapsed / 800);
+        // Immediate fade so they are visible right away
+        if (elapsed < 150) p.alpha = Math.min(1, elapsed / 150);
 
         if (phase === 'STATIC') {
           // 1. LIVE ATMOSPHERE (Drifting Flow)
@@ -206,15 +207,14 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
 
         } else if (phase === 'ORGANIZE') {
           // 2. Slow Converge (Mass-Weighted Lerp)
-          if (p.targetX === null) {
-            const angle = (i / PARTICLE_COUNT) * Math.PI * 2;
-            const r = RADIUS + (Math.random() - 0.5) * 15;
-            p.targetX = Math.cos(angle) * r;
-            p.targetY = Math.sin(angle) * r;
-          }
+          // Dynamically compute target every frame for viewport-safe center/radius
+          const angle = (i / PARTICLE_COUNT) * Math.PI * 2;
+          const rOffset = ((p.id * 13.7) % 15) - 7.5; // Deterministic stable variance
+          const currentTargetX = Math.cos(angle) * (RADIUS + rOffset);
+          const currentTargetY = Math.sin(angle) * (RADIUS + rOffset);
 
-          const dx = p.targetX! - p.x;
-          const dy = p.targetY! - p.y;
+          const dx = currentTargetX - p.x;
+          const dy = currentTargetY - p.y;
 
           // Snappy/Heavy differentiation
           p.x += dx * p.responseRate;
@@ -252,8 +252,8 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
     render();
 
     const handleResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
+      width = document.documentElement.clientWidth || window.innerWidth;
+      height = document.documentElement.clientHeight || window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
