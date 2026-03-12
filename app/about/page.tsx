@@ -52,13 +52,13 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-[#1F2124] leading-[0.9] tracking-tight mb-12">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl text-[#1F2124] leading-[0.9] tracking-tight mb-8 md:mb-12">
           The Soil is <br />
           <span className="italic text-[#A39264]">Sovereign.</span>
         </h1>
 
         <div className="max-w-2xl mx-auto">
-          <p className="font-sans text-lg md:text-2xl text-[#5A5D61] leading-relaxed">
+          <p className="font-sans text-base md:text-xl lg:text-2xl text-[#5A5D61] leading-relaxed">
             We do not just export commodities. We engineer the return of arable capacity to future generations.
           </p>
         </div>
@@ -80,17 +80,17 @@ const Thesis = () => {
   return (
     <ContentBlock systemLabel="01 / The Foundation">
       <div className="max-w-4xl mx-auto text-center space-y-16">
-        <p className="font-serif text-3xl md:text-5xl leading-[1.25] text-[#1F2124]">
+        <p className="font-serif text-2xl md:text-4xl lg:text-5xl leading-[1.25] text-[#1F2124]">
           "Soil is not a renewable resource on a human timescale. It is a <span className="italic text-[#2F4A1D]">heritage asset</span>. Once lost, it takes millennia to rebuild."
         </p>
 
         <div className="w-24 h-[1px] bg-[#1F2124]/10 mx-auto" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-          <p className="font-sans text-lg text-[#5A5D61] leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left">
+          <p className="font-sans text-base md:text-lg text-[#5A5D61] leading-relaxed">
             Griva Organic Exporters operates at the intersection of <span className="text-[#1F2124] font-medium">geology, biology, and commerce</span>. We exist to reverse the degradation of arable land through precision organic intervention.
           </p>
-          <p className="font-sans text-lg text-[#5A5D61] leading-relaxed">
+          <p className="font-sans text-base md:text-lg text-[#5A5D61] leading-relaxed">
             This is not farming. This is the maintenance of <span className="text-[#1F2124] font-medium">civilizational capacity</span>. We provide the raw inputs required to secure national yield stability for the next century.
           </p>
         </div>
@@ -107,7 +107,7 @@ const Transformation = () => {
       className="max-w-6xl"
       animateGrayscale={false}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start">
         {/* Diagrammatic Visual */}
         <div className="lg:col-span-5 relative aspect-[4/5] bg-[#D6D2C4] border border-[#1F2124]/10 p-2">
           <div className="relative w-full h-full relative">
@@ -126,39 +126,39 @@ const Transformation = () => {
         <div className="lg:col-span-1 hidden lg:block h-full w-[1px] bg-[#1F2124]/10 mx-auto" />
 
         <div className="lg:col-span-6 space-y-12 text-left pt-4">
-          <h2 className="font-serif text-4xl md:text-6xl text-[#1F2124] leading-[0.9]">
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-[#1F2124] leading-[0.9]">
             From Dead Dust to <br />
             <span className="text-[#2F4A1D]">Living Systems.</span>
           </h2>
 
-          <p className="font-sans text-xl text-[#1F2124] leading-relaxed font-medium">
+          <p className="font-sans text-lg md:text-xl text-[#1F2124] leading-relaxed font-medium">
             We replace chemical dependency with biological intelligence. By reintroducing complex carbon structures, we transform inert dirt into reactive soil capable of self-healing.
           </p>
 
           <div className="space-y-8 pt-8">
-            <div className="flex gap-6 items-baseline border-b border-[#1F2124]/10 pb-8">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 sm:items-baseline border-b border-[#1F2124]/10 pb-8">
               <span className="font-mono text-xs uppercase tracking-widest text-[#A39264] w-24 shrink-0">Phase I</span>
               <div>
-                <h4 className="font-serif text-xl text-[#1F2124] mb-2">Mycelial Architecture</h4>
+                <h4 className="font-serif text-lg md:text-xl text-[#1F2124] mb-2">Mycelial Architecture</h4>
                 <p className="font-sans text-sm text-[#5A5D61] leading-relaxed">Re-establishing the fungal neural network that governs nutrient exchange. We do not just feed the plant; we rebuild the market.</p>
               </div>
             </div>
-            <div className="flex gap-6 items-baseline border-b border-[#1F2124]/10 pb-8">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 sm:items-baseline border-b border-[#1F2124]/10 pb-8">
               <span className="font-mono text-xs uppercase tracking-widest text-[#A39264] w-24 shrink-0">Phase II</span>
               <div>
-                <h4 className="font-serif text-xl text-[#1F2124] mb-2">Carbon Sequestration</h4>
+                <h4 className="font-serif text-lg md:text-xl text-[#1F2124] mb-2">Carbon Sequestration</h4>
                 <p className="font-sans text-sm text-[#5A5D61] leading-relaxed">Locking atmospheric variables into solid-state geometry. Stability is the only metric that matters.</p>
               </div>
             </div>
           </div>
 
-          <div className="pt-4 grid grid-cols-2 gap-8">
+          <div className="pt-4 grid grid-cols-2 gap-4 md:gap-8">
             <div>
-              <span className="block font-serif text-5xl text-[#1F2124] mb-2">40%</span>
+              <span className="block font-serif text-4xl md:text-5xl text-[#1F2124] mb-2">40%</span>
               <span className="font-mono text-[9px] uppercase tracking-widest text-[#5A5D61]">Retention Uplift</span>
             </div>
             <div>
-              <span className="block font-serif text-5xl text-[#1F2124] mb-2">Gen</span>
+              <span className="block font-serif text-4xl md:text-5xl text-[#1F2124] mb-2">Gen</span>
               <span className="font-mono text-[9px] uppercase tracking-widest text-[#5A5D61]">Yield Sovereignty</span>
             </div>
           </div>
@@ -191,11 +191,11 @@ const Protocols = () => {
 
   return (
     <ContentBlock systemLabel="Standard Version 3.0">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-[#1F2124]/10 pb-6">
-        <h2 className="font-serif text-3xl md:text-4xl text-[#1F2124]">Operational Protocols</h2>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 border-b border-[#1F2124]/10 pb-6 gap-4">
+        <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl text-[#1F2124]">Operational Protocols</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-12">
         {items.map((item, i) => (
           <div key={i} className="group">
             <div className="mb-6 text-[#A39264]">
@@ -215,7 +215,7 @@ const Protocols = () => {
 // ---------------- LEGACY / CONTACT ----------------
 const Legacy = () => {
   return (
-    <section className="relative z-20 py-48 px-6 md:px-12 lg:px-24 bg-[#1F2124] text-[#F4F1E8] text-center mt-32">
+    <section className="relative z-20 py-24 md:py-32 lg:py-48 px-6 md:px-12 lg:px-24 bg-[#1F2124] text-[#F4F1E8] text-center mt-16 md:mt-32">
       {/* 
           This section sits *above* the spine (z-20) effectively ending it visually or covering it completely.
           "The interaction should feel inevitable... noticed only when removed."
@@ -224,7 +224,7 @@ const Legacy = () => {
         <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#A39264] mb-12 block">
           Institutional Origin
         </span>
-        <h2 className="font-serif text-4xl md:text-6xl leading-[1.1] mb-20 text-[#EBE6D8]">
+        <h2 className="font-serif text-3xl md:text-4xl lg:text-6xl leading-[1.1] mb-12 md:mb-20 text-[#EBE6D8]">
           We are building the soil that tomorrow's civilization will rely upon. This is an act of permanence.
         </h2>
 

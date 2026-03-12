@@ -101,7 +101,7 @@ export default function VisionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24" // Reduced padding as ContentBlocks handle their own spacing
+      className="relative py-12 md:py-24" // Reduced padding as ContentBlocks handle their own spacing
     >
       {/* 
          Removed internal NeuralSpine. 
@@ -189,7 +189,7 @@ function VisionCard({
   return (
     <div ref={ref} className="relative">
       <div
-        className={`grid md:grid-cols-2 gap-16 items-center ${index % 2 === 1
+        className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${index % 2 === 1
             ? 'md:[&>*:first-child]:order-2'
             : ''
           }`}
@@ -206,13 +206,13 @@ function VisionCard({
         </div>
 
         <div>
-          <h3 className="font-serif text-4xl text-[#1F2124]">
+          <h3 className="font-serif text-3xl md:text-4xl text-[#1F2124]">
             {card.title}
           </h3>
-          <p className="font-mono text-xs tracking-widest uppercase text-[#A39264] mt-2">
+          <p className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-[#A39264] mt-2">
             {card.subtitle}
           </p>
-          <p className="mt-6 text-lg text-[#5A5D61] max-w-md">
+          <p className="mt-4 md:mt-6 text-base md:text-lg text-[#5A5D61] max-w-md">
             {card.desc}
           </p>
         </div>

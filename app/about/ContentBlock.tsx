@@ -36,8 +36,8 @@ export const ContentBlock = ({ children, className = "", systemLabel }: ContentB
     const grayscale = useTransform(scrollYProgress, [0, 0.45, 0.55, 1], ["100%", "0%", "0%", "100%"]);
 
     return (
-        <div ref={ref} className={`relative z-10 w-full max-w-4xl mx-auto my-64 ${className}`}>
-            {/* my-64: Huge vertical spacing to ensure single-item focus */}
+        <div ref={ref} className={`relative z-10 w-full max-w-4xl mx-auto my-32 md:my-48 lg:my-64 px-6 md:px-12 xl:px-0 ${className}`}>
+            {/* Margins updated to collapse reasonably on mobile while preserving "Huge vertical spacing" on desktop */}
 
             <motion.div
                 style={{
