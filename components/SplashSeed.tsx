@@ -51,12 +51,14 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let width = canvas.clientWidth || window.innerWidth;
-    let height = canvas.clientHeight || window.innerHeight;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
     // High-DPI
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
     canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     // --- CONFIG ---
@@ -272,10 +274,12 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
 
     const handleResize = () => {
       if (!canvas) return;
-      width = canvas.clientWidth || window.innerWidth;
-      height = canvas.clientHeight || window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     window.addEventListener('resize', handleResize);
@@ -294,7 +298,7 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
       animate={{ opacity: complete ? 0 : 1 }}
       transition={{ duration: 1.5, ease: "easeInOut" }}
     >
-      <canvas ref={canvasRef} className="absolute inset-0" />
+      <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full" />
 
       {/* Brand */}
       <AnimatePresence>
