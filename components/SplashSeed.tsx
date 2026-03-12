@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+let hasPlayedThisSession = false;
+
 interface Particle3D {
   id: number;
   x: number;
@@ -29,12 +31,21 @@ interface Particle3D {
 }
 
 export default function CeremonialEntry({ onComplete, progress = 0 }: { onComplete: () => void, progress: number }) {
+  const isFirstPlay = useRef(!hasPlayedThisSession).current;
+
+  const [showLoader, setShowLoader] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [showbrand, setShowBrand] = useState(false);
   const [isDispersing, setIsDispersing] = useState(false); // New state for text explosion
-  const [complete, setComplete] = useState(false);
+  const [complete, setComplete] = useState(!isFirstPlay);
 
   useEffect(() => {
+    if (!isFirstPlay) {
+      onComplete();
+      return;
+    }
+    hasPlayedThisSession = true;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -46,13 +57,13 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
     canvas.height = height * dpr;
-    ctx.scale(dpr, dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     // --- CONFIG ---
     const PARTICLE_COUNT = 550; // High Density (User requested "more")
-    const FORMATION_TIME = 50;  // Immediate responsive start
-    const HOLD_TIME = 2800;     // Adjusted to match faster start
-    const EXIT_TIME = 4200;     // Adjusted
+    const FORMATION_TIME = 200;  // Immediate responsive start
+    const HOLD_TIME = 3000;     // Adjusted to match faster start
+    const EXIT_TIME = 5000;     // Adjusted
     const FOCAL_LENGTH = 400;
 
     // --- STATE ---
@@ -173,7 +184,8 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
       const cx = width / 2;
       const cy = height / 2;
       // Viewport-safe calculation to guarantee a perfect circle on all ratios
-      const RADIUS = width < 768 ? Math.min(width, height) * 0.42 : Math.min(width, height) * 0.32;
+      const base = Math.min(width, height);
+      const RADIUS = base * 0.34;
 
       // Sort Z for occlusion
       particles.sort((a, b) => a.z - b.z);
@@ -256,7 +268,7 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
       height = document.documentElement.clientHeight || window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     window.addEventListener('resize', handleResize);
 
@@ -264,7 +276,9 @@ export default function CeremonialEntry({ onComplete, progress = 0 }: { onComple
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [isFirstPlay, onComplete]);
+
+  if (!isFirstPlay) return null;
 
   return (
     <motion.div
