@@ -138,7 +138,7 @@ export default function GrivaFutureHero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.8, duration: 1 }}
-            className="max-w-2xl bg-white/[0.01] backdrop-blur-md border-l-[1px] border-[#C2A676]/20 p-8 relative overflow-hidden"
+            className="max-w-2xl bg-white/[0.01] backdrop-blur-md border-l-[1px] border-[#C2A676]/20 p-6 md:p-8 relative overflow-hidden"
           >
             {/* Decorative Corner Trace */}
             <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#C2A676]/40" />

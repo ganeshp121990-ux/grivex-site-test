@@ -409,7 +409,7 @@ export default function InstitutionalFooter({ productContext }: FooterProps) {
     return (
         <footer
             ref={containerRef}
-            className="relative w-full bg-[#080808] text-[#E0E0E0] pt-24 overflow-hidden selection:bg-[#C2A676] selection:text-black"
+            className="relative w-full bg-[#080808] text-[#E0E0E0] pt-16 md:pt-24 overflow-hidden selection:bg-[#C2A676] selection:text-black"
         >
             {/* 1. INQUIRY TERMINAL (Top Layer - Integrated) */}
             <div className="relative z-20 px-0 md:px-8 mb-32">
@@ -419,7 +419,7 @@ export default function InstitutionalFooter({ productContext }: FooterProps) {
             </div>
 
             {/* 2. MANIFESTO & LINKS (Middle Layer) */}
-            <div className="relative z-20 max-w-[1600px] mx-auto px-6 md:px-12 pb-32 grid grid-cols-1 md:grid-cols-12 gap-16 border-t border-[#333] pt-16">
+            <div className="relative z-20 max-w-[1600px] mx-auto px-6 md:px-12 pb-20 md:pb-32 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 border-t border-[#333] pt-12 md:pt-16">
 
                 {/* Manifesto */}
                 <div className="md:col-span-5 space-y-8">

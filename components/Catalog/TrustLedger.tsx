@@ -4,7 +4,7 @@ import { ScanLine } from "lucide-react";
 
 export default function TrustLedger() {
   return (
-    <section className="bg-[#1A1C16] text-[#EAE4D8] py-32 px-6 md:px-24">
+    <section className="bg-[#1A1C16] text-[#EAE4D8] py-20 md:py-32 px-6 md:px-24">
        <div className="border-t border-[#C2A676]/30 pt-8 flex flex-col gap-12">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">

@@ -21,7 +21,7 @@ export default function ContactPage() {
                 MonolithicFooter is HUGE (min-h-[600px] + lots of padding).
                 Let's just render it.
             */}
-            <div className="pt-32">
+            <div className="pt-20 md:pt-32">
                 <Footer />
             </div>
         </main>

@@ -57,7 +57,7 @@ export default function QualityPromises() {
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6">
         
         {/* HEADER (Compact) */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -97,12 +97,12 @@ export default function EstateShowcase() {
       </div>
 
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <div className="absolute top-20 left-12 z-20">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-[1px] w-8 bg-[#D4AF37]" />
-            <h2 className="text-[#C2A14D] text-[15px] font-bold uppercase tracking-[0.4em]">Griva: The Vault Collection</h2>
+        <div className="absolute top-16 left-6 md:top-20 md:left-12 z-20">
+          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+            <span className="h-[1px] w-6 md:w-8 bg-[#D4AF37]" />
+            <h2 className="text-[#C2A14D] text-[12px] md:text-[15px] font-bold uppercase tracking-[0.2em] md:tracking-[0.4em]">Griva: The Vault Collection</h2>
           </div>
-          <h1 className="text-5xl font-serif text-[#355E3B]">The Portfolio Showcase</h1>
+          <h1 className="text-4xl md:text-5xl font-serif text-[#355E3B]">The Portfolio Showcase</h1>
         </div>
 
         <AnimatePresence>
