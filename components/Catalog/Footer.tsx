@@ -221,7 +221,7 @@ const InquiryTerminal = ({ productContext }: { productContext?: { code: string, 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                                         <div className="group">
                                             <label className="block font-mono text-[11px] uppercase tracking-widest text-[#8C867E] mb-4 group-focus-within:text-[#4A5D4E] transition-colors">
-                                                Officer Designation
+                                                Name/Title
                                             </label>
                                             <input required type="text" className="w-full bg-transparent border-b border-[#E5E0D5] py-2 font-mono text-sm text-[#2D362E] focus:border-[#4A5D4E] outline-none transition-all placeholder-[#E5E0D5] rounded-none uppercase" placeholder="NAME & TITLE" />
                                         </div>
@@ -233,7 +233,7 @@ const InquiryTerminal = ({ productContext }: { productContext?: { code: string, 
                                         </div>
                                         <div className="group">
                                             <label className="block font-mono text-[11px] uppercase tracking-widest text-[#8C867E] mb-4 group-focus-within:text-[#4A5D4E] transition-colors">
-                                                Market Origin
+                                                Country
                                             </label>
                                             <input required type="text" className="w-full bg-transparent border-b border-[#E5E0D5] py-2 font-mono text-sm text-[#2D362E] focus:border-[#4A5D4E] outline-none transition-all placeholder-[#E5E0D5] rounded-none uppercase" placeholder="REGION / COUNTRY" />
                                         </div>

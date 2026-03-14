@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
 
 // --- ASSET CONFIGURATION ---
-const VIDEO_SOURCE = "/images/Desert_To_Palm_Farm.mp4";
+const VIDEO_SOURCE = "/images/Test.mp4";
 
 const BRAND_CONTENT = {
   headline: "GRIVA",
@@ -78,7 +78,7 @@ export default function GrivaFutureHero() {
     >
       {/* 1. CINEMATIC BACKGROUND */}
       <motion.div style={{ scale: videoScale }} className="absolute inset-0 z-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-50 brightness-75 contrast-110">
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover opacit-30 brightness-85 contrast-110">
           <source src={VIDEO_SOURCE} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020202]/30 to-[#020202] z-[1]" />
@@ -96,9 +96,9 @@ export default function GrivaFutureHero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex items-center gap-6 mb-8 text-[#C2A676]/70 font-mono text-[10px] tracking-[0.5em]"
+            className="flex items-center gap-6 mb-8 text-[#C2A14D] font-mono text-[10px] tracking-[0.5em]"
           >
-            <div className="w-10 h-[1px] bg-[#C2A676]/40" />
+            <div className="w-10 h-[2px] bg-[#C2A14D]" />
             <span>{BRAND_CONTENT.subhead} // EST. 2026</span>
           </motion.div>
 
