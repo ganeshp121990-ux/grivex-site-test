@@ -9,6 +9,7 @@ import GlobalOperations from "@/components/GlobalOperations";
 import SectionConnector from "@/components/SectionConnector";
 import ProductShowcaseGrid from "@/components/ProductShowcaseGrid";
 import Footer from "@/components/Catalog/Footer";
+import MissionPage from "@/components/Mission";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -21,6 +22,7 @@ export default function Home() {
         <SectionConnector />
         <ProductShowcaseGrid />
         <GlobalOperations />
+        <MissionPage />
         <Footer />
 
         <AnimatePresence mode="wait">

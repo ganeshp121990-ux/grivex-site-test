@@ -85,7 +85,7 @@ export default function GrivaFutureHero() {
       </motion.div>
 
       {/* 2. ATMOSPHERIC OVERLAYS */}
-      <div className="absolute inset-0 z-[2] pointer-events-none opacity-[0.08] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app')]" />
+      <div className="absolute inset-0 z-[2] pointer-events-none opacity-[0.08] mix-blend-overlay bg-[url('/noise.svg')]" />
 
       {/* 3. HERO CONTENT */}
       <motion.div style={{ y: contentY }} className="relative z-10 h-full w-full flex flex-col justify-center px-6 md:px-24 max-w-[1800px] mx-auto">

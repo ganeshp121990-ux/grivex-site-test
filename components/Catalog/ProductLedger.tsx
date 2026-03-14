@@ -288,7 +288,7 @@ const CinematicImageSequencer = ({ images }: { images: string[] }) => {
       </AnimatePresence>
 
       {/* Subtle Grain Overlay for texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('/noise.svg')] mix-blend-overlay" />
 
       {/* Manual Indicators */}
       <div className="absolute bottom-8 left-0 w-full flex justify-center gap-3 z-20">

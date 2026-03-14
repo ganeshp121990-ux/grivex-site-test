@@ -40,7 +40,7 @@ const Hero = () => {
             priority
           />
           {/* Noise Texture for permanence/materiality */}
-          <div className="absolute inset-0 opacity-[0.05] z-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+          <div className="absolute inset-0 opacity-[0.05] z-20 bg-[url('/noise.svg')]" />
         </div>
       </motion.div>
 
