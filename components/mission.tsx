@@ -523,8 +523,8 @@ export default function MissionPage() {
                 ──────────────────────────────────────────────────────────────── */}
             <section
                 ref={heroRef}
-                className="relative min-h-[80vh] md:min-h-[100vh] flex flex-col items-center justify-center overflow-hidden px-6"
-                aria-label="Mission hero"
+                className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden"
+                style={{ isolation: 'isolate' }}
             >
                 {/* Soil texture background */}
                 <motion.div
@@ -706,7 +706,11 @@ export default function MissionPage() {
                     <div
                         ref={journeyRef}
                         className="relative"
-                        style={{ minHeight: `${phases.length * 55}vh` }}
+                        style={{
+                            minHeight: typeof window !== 'undefined' && window.innerWidth < 1024
+                                ? 'auto'
+                                : `${phases.length * 55}dvh`
+                        }}
                     >
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 lg:sticky lg:top-24">
                             {/* Left: Vertical progress + phase list */}
