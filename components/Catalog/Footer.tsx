@@ -1,5 +1,7 @@
 'use client';
 
+import { Suspense } from 'react';
+
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useSearchParams, usePathname } from 'next/navigation';
@@ -361,7 +363,9 @@ export default function InstitutionalFooter({ productContext }: FooterProps) {
         >
             {/* 1. INQUIRY TERMINAL (Top Layer) */}
             <div className="relative z-20 px-0 md:px-8 mb-32">
-                <InquiryTerminal productContext={productContext} />
+                <Suspense fallback={null}>
+                    <InquiryTerminal productContext={productContext} />
+                </Suspense>
             </div>
 
             {/* 2. MANIFESTO & LINKS (Middle Layer) */}

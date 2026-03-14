@@ -9,7 +9,7 @@ import GlobalOperations from "@/components/GlobalOperations";
 import SectionConnector from "@/components/SectionConnector";
 import ProductShowcaseGrid from "@/components/ProductShowcaseGrid";
 import Footer from "@/components/Catalog/Footer";
-import MissionPage from "@/components/Mission";
+import MissionPage from "@/components/mission";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
