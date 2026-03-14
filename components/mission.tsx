@@ -506,6 +506,16 @@ export default function MissionPage() {
     const sysRef = useRef<HTMLDivElement>(null);
     const sysInView = useInView(sysRef, { once: true, margin: '-80px' });
 
+    /* ── Desktop detection (avoids SSR mismatch & reacts to resize) ── */
+    const [isDesktop, setIsDesktop] = useState(false);
+    useEffect(() => {
+        const mq = window.matchMedia('(min-width: 1024px)');
+        setIsDesktop(mq.matches);
+        const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+        mq.addEventListener('change', handler);
+        return () => mq.removeEventListener('change', handler);
+    }, []);
+
     return (
         <div
             ref={pageRef}
@@ -706,11 +716,7 @@ export default function MissionPage() {
                     <div
                         ref={journeyRef}
                         className="relative"
-                        style={{
-                            minHeight: typeof window !== 'undefined' && window.innerWidth < 1024
-                                ? 'auto'
-                                : `${phases.length * 55}dvh`
-                        }}
+                        style={{ minHeight: isDesktop ? `${phases.length * 55}dvh` : 'auto' }}
                     >
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 lg:sticky lg:top-24">
                             {/* Left: Vertical progress + phase list */}
